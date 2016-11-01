@@ -1,0 +1,28 @@
+<form action="/trips" method="post">
+
+  <label for="">destination</label>
+  <input name= "destination" type="text" />
+
+  <label for="">start date</label>
+  <input name= "start_date" type="text" />
+
+  <label for="">duration</label>
+  <input name= "duration" type="text" />
+
+  <label for="">minimum mates</label>
+  <input name= "min_mate_number" type="text" />
+
+  <label for="">maximum mates</label>
+  <input name= "max_mate_number" type="text" />
+
+  <label for="">trip type</label>
+  <select name="trip_type_id" id="">
+    <% @trip_types.each do |trip_type| %>
+    <option value="<%= trip_type.id %>"><%= trip_type.name %> </option>
+    <% end %>
+
+  </select>
+
+  <button>Create</button>
+
+</form>

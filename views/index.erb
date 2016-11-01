@@ -1,0 +1,9 @@
+
+<a href="/trips/new">new trip</a>
+
+<% @trips.each do |trip| %>
+  <h2> <%= trip.destination %></h2>
+  <a href="/trips/<%= trip.id %>">
+    <img src="<%= trip.second_image_url %>" alt="">
+  </a>
+<% end %>
