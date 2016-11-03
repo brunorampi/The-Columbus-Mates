@@ -49,3 +49,9 @@ ALTER TABLE trips ADD COLUMN second_image_url TEXT;
 INSERT INTO trips (destination, start_date, duration,
 trip_type_id, image_url, min_mate_number,max_mate_number,trip_mate_id, second_image_url, user_id )
 VALUES ('Thailand', '01/12/2016', '15 days', 1, 'http://www2.padi.com/blog/wp-content/uploads/2015/07/thailand-krabi.jpg', 3, 6, 3, 'http://newmedia.thomson.co.uk/live/vol/0/921d4b57639916341dfa76e38310ff7bc13b11e2/1080x608/web/ASIAFAREASTTHAILANDTHAILANDDES_000423KHAOLAKRES_002378.jpg', 1);
+
+CREATE TABLE comments (
+  id SERIAL4 PRIMARY KEY,
+  body TEXT,
+  user_id INTEGER
+);

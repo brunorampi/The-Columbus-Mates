@@ -6,3 +6,9 @@
   <h2><span class"web_page_font"> Email: </span><%= @user.email %></h2>
   <h2><span class"web_page_font"> Username: </span> <%= @user.username %></h2>
 </div>
+
+<form action="/comments" method="post">
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <textarea name="body" id="" cols="30" rows="10"></textarea>
+  <button>post comment</button>
+</form>

@@ -6,6 +6,7 @@ require_relative 'models/users_trip'
 require_relative 'models/user'
 require_relative 'models/trip'
 require_relative 'models/trip_type'
+require_relative 'models/comment'
 
 enable :sessions
 
@@ -50,7 +51,9 @@ get '/trips/:id' do
 end
 
 get '/search' do
-    @trip = Trip.where(["destination LIKE ?", "%#{params[:destination]}%"])
+    @trip = Trip.where(["destination ILIKE ?", "%#{params[:destination]}%"])
+
+
 
 
     erb :search
@@ -59,6 +62,7 @@ get '/search' do
 get '/users/profile/:id' do
   @user = User.find(params[:id])
   erb :users_profile
+  # @comments = Comment.where(user_id: @user.id)
 
 end
 
@@ -138,6 +142,16 @@ post '/interest' do
   end
 
   erb :trips_show
+end
+
+post '/comments' do
+  comment = Comment.new
+  comment.body = params[:body]
+  comment.user_id = params[:user_id]
+  comment.save
+  redirect to "/users/profile/#{params[:user_id]}"
+
+
 end
 
 

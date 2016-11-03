@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :age, presence: true
   has_many :users_trips
   has_many :trips, through: :users_trips
+  has_many :comments
 end
