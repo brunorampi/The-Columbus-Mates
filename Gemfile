@@ -4,7 +4,6 @@ gem 'activerecord'
 gem 'sinatra'
 gem 'pg'
 gem 'bcrypt'
-gem 'httparty'
 gem 'pry'
 
 ruby '2.2.4'

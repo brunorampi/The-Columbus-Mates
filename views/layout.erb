@@ -2,12 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
+    <title>The Columbus Mates</title>
   </head>
   <body>
-    <h1>The Columbus' mates</h1>
+    <div id="header">
 
-
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+              x.className += " responsive";
+          } else {
+              x.className = "topnav";
+          }
+        }
+      </script>
+      <ul class="topnav" id="myTopnav">
+        <li id="home_logo"><a href="/">The Columbus Mates</a></li>
+        <li id="search_label">
+          <form action="/search" method="get">
+            <input class="w3-input w3-animate-input" type="text" style="width:70%" placeholder="Where to go?" autocomplete="off" name="destination">
+          </form>
+        </li>
+        <li>
+          <% if logged_in? %>
+            <a href='/trips/new'>Become a Columbus</a>
+          <% else %>
+            <a href= "/session/new">Become a Columbus</a>
+          <% end %>
+        </li>
+        <li>
+          <% if logged_in? %>
+            Help
+          <% else %>
+            <a href="/users/new">Sign Up</a></li>
+          <% end %>
+        <li>
+          <% if logged_in? %>
+            <a href="/users/personal"><%= current_user.username %> </a>
+          <% else %>
+            <a href= "/session/new">Log In</a>
+          <% end %>
+        </li>
+        <li class="icon">
+          <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+        </li>
+      </ul>
+    </div>
+  <% if logged_in? %>
+    logged in as <%= current_user.email %>
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete" />
+      <button>logout</button>
+    </form>
+  <% end %>
 
     <%= yield %>
   </body>

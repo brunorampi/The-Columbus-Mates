@@ -1,0 +1,142 @@
+body {
+  font-family:'Itim', cursive;
+  color: #484848;
+  background-color: #fff;
+  width:100%;
+}
+
+ul.topnav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+
+}
+
+ul.topnav li {
+  float:left;
+  height: 44px;
+  border:groove;
+  border-bottom-width: 2px;
+  border-top: none;
+  margin:0;
+  color: #484848;
+}
+ul.topnav li a {
+  display: inline-block;
+  text_align: center;
+  text-decoration: none;
+  color: #484848;
+  border-color: #aaaaaa;
+
+}
+
+#header {
+  padding-bottom: 5%;
+}
+
+#home_logo{
+  border-left: none;
+  width:16%;
+  border-right: 0;
+  text-align:left;
+  color: #484848;
+}
+
+#myTopnav > li:nth-child(2){
+  width:32%;
+  border-right: 0;
+  text-align: center;
+}
+#myTopnav > li:nth-child(3){
+  width:16%;
+  border-left: 0;
+  font-size: 12px;
+  border-right: 0;
+  text-align: center;
+}
+#myTopnav > li:nth-child(4){
+  width:16%;
+  border-right: 0;
+  text-align: center;
+  color: #484848;
+}
+#myTopnav > li:nth-child(5){
+  width:16%;
+  border-right: 0;
+  text-align: center;
+  color: #484848;
+}
+
+#search_label > form > input[type="text"]{
+  border:none;
+  font-size: 16px;
+
+}
+
+#myTopnav > li:nth-child(3) > a {
+  border:groove;
+  border-width: 2px;
+  border-radius: 4px;
+  color: #484848;
+  border-color: #aaaaaa;
+}
+
+#myTopnav > li.icon {
+  border-left: none;
+  border-right: none;
+
+}
+
+.index_page_img {
+  width: 300px;
+  height: 180px;
+}
+body > img{
+  max-width: 54%;
+}
+
+body > h2 {
+  font-size: -webkit-xxx-large;}
+
+body > img {
+  float:left
+}
+body > div:nth-child(5){
+  position: relative;
+right: -65px;
+}
+body > div:nth-child(5) > h3:nth-child(4) > a {
+  text-decoration: none;
+  color: #3b5683
+}
+
+
+@media screen and (max-width:616px) {
+  ul.topnav li {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:616px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+.blocks_index_page{
+  display: inline-block;
+}

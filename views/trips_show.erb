@@ -1,5 +1,11 @@
 <h2> <%= @trip.destination %> </h2>
 <img src="<%= @trip.image_url %>" alt="">
-<h3> When: <%= @trip.start_date %> </h3>
-<h3> Duration: <%= @trip.duration %> </h3>
-<h3> Cathegory: <%= @trip.trip_type.name %> </h3>
+<div>
+  <h3> When: <%= @trip.start_date %> </h3>
+  <h3> Duration: <%= @trip.duration %> </h3>
+  <h3> Cathegory: <%= @trip.trip_type.name %> </h3>
+
+  <h3> Columbus:<a href="/users/profile/<%= @trip.user.id %>"> <%= @trip.user.name %> </h3>
+  </a>
+  <h3> Mates: </h3>
+</div>

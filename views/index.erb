@@ -1,9 +1,14 @@
 
-<a href="/trips/new">new trip</a>
+<div id="index_page">
+  <% @trips.each do |trip| %>
 
-<% @trips.each do |trip| %>
-  <h2> <%= trip.destination %></h2>
-  <a href="/trips/<%= trip.id %>">
-    <img src="<%= trip.second_image_url %>" alt="">
-  </a>
-<% end %>
+   <div class="blocks_index_page">
+      <h2> <%= trip.destination %></h2>
+      <a href="/trips/<%= trip.id %>">
+        <img class="index_page_img" src="<%= trip.second_image_url %>" alt="">
+      </a>
+    </div>
+  <% end %>
+
+
+</div>
