@@ -2,11 +2,14 @@ require 'sinatra'
 require 'pry'
 require 'sinatra/reloader'
 require_relative 'db_config'
+require_relative 'models/users_trip'
+require_relative 'models/user'
 require_relative 'models/trip'
 require_relative 'models/trip_type'
-require_relative 'models/user'
 
 enable :sessions
+
+
 
 helpers do
   def logged_in?
@@ -15,6 +18,7 @@ helpers do
   def current_user
     User.find_by(id: session[:user_id])
   end
+
 end
 
 get '/' do
@@ -42,7 +46,6 @@ end
 
 get '/trips/:id' do
   @trip = Trip.find(params[:id])
-  @user = User.all
   erb :trips_show
 end
 
@@ -115,6 +118,24 @@ post '/session' do
     erb :session_new
   end
 end
+
+post '/interest' do
+
+  @trip = Trip.find(params[:trip_id])
+  if @trip.users.count < @trip.max_mate_number
+    @trip.users << current_user
+    @trip.save
+  else
+
+
+  end
+
+  erb :trips_show
+end
+
+
+
+
 
 delete '/session' do
   #remove the session

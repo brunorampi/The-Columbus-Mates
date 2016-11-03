@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   validates :nationality, presence: true
   validates :username, presence: true
   validates :age, presence: true
+  has_many :users_trips
+  has_many :trips, through: :users_trips
 end

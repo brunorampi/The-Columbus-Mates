@@ -52,10 +52,9 @@
       </ul>
     </div>
   <% if logged_in? %>
-    logged in as <%= current_user.email %>
     <form action="/session" method="post">
       <input type="hidden" name="_method" value="delete" />
-      <button>logout</button>
+      <button id="logout_button">logout</button>
     </form>
   <% end %>
 

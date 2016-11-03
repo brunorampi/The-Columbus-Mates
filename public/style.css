@@ -111,7 +111,31 @@ body > div:nth-child(5) > h3:nth-child(4) > a {
   text-decoration: none;
   color: #3b5683
 }
+.mates_text{
+  text-decoration: none;
+  color: #629f41;
+}
 
+#index_page {
+  margin-left: 8%;
+  margin-right: 6%
+}
+
+body > div:nth-child(3){
+  margin-left:5%
+}
+span {
+  color:black;
+}
+#logout_button {
+  position: fixed;
+    right: 0px;
+    top: 53px;
+    border-color: #9a9a9a;
+    background-color: white;
+    cursor: auto;
+
+}
 
 @media screen and (max-width:616px) {
   ul.topnav li {display: none;}

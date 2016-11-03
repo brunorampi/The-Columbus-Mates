@@ -5,7 +5,15 @@
   <h3> Duration: <%= @trip.duration %> </h3>
   <h3> Cathegory: <%= @trip.trip_type.name %> </h3>
 
-  <h3> Columbus:<a href="/users/profile/<%= @trip.user.id %>"> <%= @trip.user.name %> </h3>
-  </a>
-  <h3> Mates: </h3>
+  <h3> Columbus: <a href="/users/profile/<%= @trip.host_user.id %>"> <%= @trip.host_user.name %> </a> </h3>
+  <h3> Mates: <% @trip.users.each do |user| %>
+    <a class="mates_text" href="/users/profile/<%= user.id %>"><%= user.name %>
+    <% end %>
+  </h3>
+
 </div>
+
+<form action="/interest" method="post">
+  <input type="hidden" name="trip_id" value="<%= @trip.id %>">
+  <button>Express Your Interest</button>
+</form>
