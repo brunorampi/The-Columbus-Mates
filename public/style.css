@@ -88,6 +88,14 @@ ul.topnav li a {
   border-right: none;
 
 }
+.search_page_img{
+  width: 300px;
+  height: 180px;
+
+}
+.search_page_img{
+  display: inline-block;
+}
 
 .index_page_img {
   width: 300px;
@@ -136,7 +144,9 @@ span {
     cursor: auto;
 
 }
-
+#search_page > div:nth-child(2){
+  display: inline-block;
+}
 @media screen and (max-width:616px) {
   ul.topnav li {display: none;}
   ul.topnav li.icon {
@@ -163,4 +173,9 @@ span {
 }
 .blocks_index_page{
   display: inline-block;
+}
+
+body > h2:nth-child(5) > a {
+  text-decoration: none;
+color: #3b5683;
 }

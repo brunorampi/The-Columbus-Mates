@@ -50,7 +50,9 @@ get '/trips/:id' do
 end
 
 get '/search' do
-    @trip = Trip.where(destination: params[:destination])
+    @trip = Trip.where(["destination LIKE ?", "%#{params[:destination]}%"])
+
+
     erb :search
   end
 
@@ -58,6 +60,12 @@ get '/users/profile/:id' do
   @user = User.find(params[:id])
   erb :users_profile
 
+end
+
+get '/new_search' do
+
+
+  erb :new_search
 end
 
 
@@ -126,8 +134,7 @@ post '/interest' do
     @trip.users << current_user
     @trip.save
   else
-
-
+    redirect to '/new_search'
   end
 
   erb :trips_show

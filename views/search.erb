@@ -1,8 +1,13 @@
-<% @trip.each do |trip| %>
+<div id="search_page">
 
-  <h2> <%= trip.destination %></h2>
-  <a href="/trips/<%= trip.id %>">
-    <img src="<%= trip.second_image_url %>" alt="">
-  </a>
+  <% @trip.each do |trip| %>
+
+    <div class="search_panel">
+      <h2> <%= trip.duration %></h2>
+      <a href="/trips/<%= trip.id %>">
+        <img class="search_page_img" src="<%= trip.second_image_url %>" alt="">
+      </a>
+    </div>
 
   <% end %>
+</div>
