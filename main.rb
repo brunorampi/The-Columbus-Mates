@@ -58,7 +58,8 @@ get '/search' do
 get '/users/profile/:id' do
   @user = User.find(params[:id])
   @comments = Comment.where(user_id: @user.id)
-  @ratings = Rating.all
+  @ratings = Rating.where(user_id: @user.id)
+
   erb :users_profile
 
 end
@@ -147,7 +148,8 @@ post '/comments' do
   comment.user_id = params[:user_id]
   rating = Rating.new
   rating.score = params[:score]
-  # @user.vote << rating.score
+  @user = User.find(comment.user_id)
+  @user.ratings << rating
   redirect to '/session/new' unless logged_in?
   comment.save
   rating.save

@@ -9,16 +9,23 @@
 
 <% @comments.each do |comment| %>
   <h3><%= current_user.username %> says: </h3>
-  <p><%= comment.body %> with a score of: </p>
+  <p><%= comment.body %> </p>
+<% end %>
+<% @ratings.each do |rating| %>
+<p>with a total score of:</p> <h3> <%= rating.score %></h3>
 <% end %>
 <form action="/comments" method="post">
   <input type="hidden" name="user_id" value="<%= @user.id %>">
   <textarea name="body" id="" cols="30" rows="10"></textarea>
   <label for="">rating</label>
   <select name="score" id="">
-    <% @ratings.each do |rating| %>
-    <option value="<%= rating.id %>"><%= rating.score %> </option>
-    <% end %> </select>
+
+    <option value="1"> 1  </option>
+    <option value="2"> 2  </option>
+    <option value="2"> 3  </option>
+    <option value="2"> 4  </option>
+    <option value="2"> 5  </option>
+ </select>
 
     <button>post comment</button>
 </form>
