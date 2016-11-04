@@ -9,7 +9,7 @@
 
 <% @comments.each do |comment| %>
   <h3><%= current_user.username %> says: </h3>
-  <p><%= comment.body %> with a score of: </p> <h3><%=rating.score %></h3>
+  <p><%= comment.body %> with a score of: </p>
 <% end %>
 <form action="/comments" method="post">
   <input type="hidden" name="user_id" value="<%= @user.id %>">
