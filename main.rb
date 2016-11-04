@@ -138,7 +138,6 @@ post '/interest' do
   else
     redirect to '/new_search'
   end
-
   erb :trips_show
 end
 
