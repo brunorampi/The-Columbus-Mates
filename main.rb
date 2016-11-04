@@ -1,16 +1,15 @@
 require 'sinatra'
 require 'pry'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require_relative 'db_config'
 require_relative 'models/users_trip'
 require_relative 'models/user'
 require_relative 'models/trip'
 require_relative 'models/trip_type'
 require_relative 'models/comment'
+require_relative 'models/rating'
 
 enable :sessions
-
-
 
 helpers do
   def logged_in?
@@ -53,16 +52,14 @@ end
 get '/search' do
     @trip = Trip.where(["destination ILIKE ?", "%#{params[:destination]}%"])
 
-
-
-
     erb :search
   end
 
 get '/users/profile/:id' do
   @user = User.find(params[:id])
+  @comments = Comment.where(user_id: @user.id)
+  @ratings = Rating.all
   erb :users_profile
-  # @comments = Comment.where(user_id: @user.id)
 
 end
 
@@ -148,16 +145,14 @@ post '/comments' do
   comment = Comment.new
   comment.body = params[:body]
   comment.user_id = params[:user_id]
+  rating = Rating.new
+  rating.score = params[:score]
+  # @user.vote << rating.score
+  redirect to '/session/new' unless logged_in?
   comment.save
+  rating.save
   redirect to "/users/profile/#{params[:user_id]}"
-
-
 end
-
-
-
-
-
 delete '/session' do
   #remove the session
   session[:user_id] = nil

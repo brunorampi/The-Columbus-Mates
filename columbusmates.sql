@@ -55,3 +55,11 @@ CREATE TABLE comments (
   body TEXT,
   user_id INTEGER
 );
+
+CREATE TABLE ratings (
+  id SERIAL4 PRIMARY KEY,
+  score INTEGER
+  user_id INTEGER
+);
+
+INSERT INTO ratings (score) VALUES (1);

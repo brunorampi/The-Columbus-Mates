@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   has_many :users_trips
   has_many :trips, through: :users_trips
   has_many :comments
+  has_many :ratings
 end
